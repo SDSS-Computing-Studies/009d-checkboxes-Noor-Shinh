@@ -51,7 +51,7 @@ def get_decimal():
     # this tuple will be used as an input parameter for binary_to_decimal and the result updated
     # in the entry box
     binary = []
-    decimal = binary_to_decimal(binary)
+    
     a=int(state1.get())
     b=int(state2.get())
     c=int(state3.get())
@@ -68,16 +68,25 @@ def get_decimal():
     binary.insert(f,5)
     binary.insert(g,6)
     binary.insert(h,7)
-
+    decimal = binary_to_decimal(binary)
+    eoutput.set(decimal)
 win = tk.Tk() 
 state1=IntVar()
+state1.set(0)
 state2=IntVar()
+state2.set(0)
 state3=IntVar()
+state3.set(0)
 state4=IntVar()
+state4.set(0)
 state5=IntVar()
+state5.set(0)
 state6=IntVar()
+state6.set(0)
 state7=IntVar()
+state7.set(0)
 state8=IntVar()
+state8.set(0)
 eoutput=StringVar()
 win.title("Task1")
 l1=Label(win,text="Binary/Decimal Converter")
