@@ -18,15 +18,18 @@ Use assignment_test.py to test your functions
 
 
 import tkinter as tk 
+from tkinter import *
+from tkinter import ttk
 
 
 
 def binary_to_decimal(binary):
     # binary is a tuple of length 8
     # return value is an integer decimal
-
-
+    decimal = binary[0]*128+binary[1]*64+binary[2]*32+binary[3]*16+binary[4]*8+binary[5]*4+binary[6]*2+binary[7]
     return decimal 
+
+    
 
 def decimal_to_binary(decimal):
     # decimal is an integer value
@@ -39,9 +42,9 @@ def get_binary():
     # function should read the entry widget and generate an integer
     # this integer will be used as an input parameter for decimal to binary and the result updated
     # in the 8 checkboxes
-
-    binary = binary_to_decimal(decimal)
-
+    
+    binary = decimal_to_binary(decimal)
+    pass
 
 def get_decimal():
     # function should read the checkboxes and generate a tuple called binary of length 8 that has 1's and 0's
@@ -49,18 +52,62 @@ def get_decimal():
     # in the entry box
     binary = []
     decimal = binary_to_decimal(binary)
+    a=int(state1.get())
+    b=int(state2.get())
+    c=int(state3.get())
+    d=int(state4.get())
+    e=int(state5.get())
+    f=int(state6.get())
+    g=int(state7.get())
+    h=int(state8.get())
+    binary.insert(a,0)
+    binary.insert(b,1)
+    binary.insert(c,2)
+    binary.insert(d,3)
+    binary.insert(e,4)
+    binary.insert(f,5)
+    binary.insert(g,6)
+    binary.insert(h,7)
 
-
-
-win = tk.Tk()
-
-
-
-b1 = Button(win, text="Convert to Binary", command=get_binary)
-b2 = Button(win, text="Convert to Decimal", command=get_decimal)
-
-
-
-
-
+win = tk.Tk() 
+state1=IntVar()
+state2=IntVar()
+state3=IntVar()
+state4=IntVar()
+state5=IntVar()
+state6=IntVar()
+state7=IntVar()
+state8=IntVar()
+eoutput=StringVar()
+win.title("Task1")
+l1=Label(win,text="Binary/Decimal Converter")
+cb1=Checkbutton(win,variable=state1)
+cb2=Checkbutton(win,variable=state2)
+cb3=Checkbutton(win,variable=state3)
+cb4=Checkbutton(win,variable=state4)
+cb5=Checkbutton(win,variable=state5)
+cb6=Checkbutton(win,variable=state6)
+cb7=Checkbutton(win,variable=state7)
+cb8=Checkbutton(win,variable=state8)
+b1 = Button(win, text="Convert to Binary",command=get_binary)
+b2 = Button(win, text="Convert to Decimal",command=get_decimal)
+e1=Entry(win,textvariable=eoutput)
+win.geometry("230x120")
+l1.place(x=30,y=10)
+cb1.place(x=10,y=30)
+cb2.place(x=30,y=30)
+cb3.place(x=50,y=30)
+cb4.place(x=70,y=30)
+cb5.place(x=90,y=30)
+cb6.place(x=110,y=30)
+cb7.place(x=130,y=30)
+cb8.place(x=150,y=30)
+b1.place(x=1,y=55)
+b2.place(x=105,y=55)
+e1.place(x=40,y=90)
 win.mainloop()
+
+
+
+
+
