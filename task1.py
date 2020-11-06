@@ -15,8 +15,6 @@ here
 
 Use assignment_test.py to test your functions
 """
-
-
 import tkinter as tk 
 from tkinter import *
 from tkinter import ttk
@@ -35,17 +33,37 @@ def decimal_to_binary(decimal):
     # decimal is an integer value
     # binary is a tuple of length 8 that contains 1's and 0's
 
+    num=int(decimal)
+    
+    binary=[]
+    for i in range(0,8):
+        newnum=128/(2**i)
+        remaining=num-newnum
+        
+        if remaining>=0:
+            binary.insert(i,1)
+            num=remaining
+        elif remaining<0:
+            binary.insert(i,0)
+            num=remaining+newnum
+        
     return binary
-
 
 def get_binary():
     # function should read the entry widget and generate an integer
     # this integer will be used as an input parameter for decimal to binary and the result updated
     # in the 8 checkboxes
     
+    decimal = e1.get()
     binary = decimal_to_binary(decimal)
-    pass
-
+    state1.set(binary[0])
+    state2.set(binary[1])
+    state3.set(binary[2])
+    state4.set(binary[3])
+    state5.set(binary[4])
+    state6.set(binary[5])
+    state7.set(binary[6])
+    state8.set(binary[7])
 def get_decimal():
     # function should read the checkboxes and generate a tuple called binary of length 8 that has 1's and 0's
     # this tuple will be used as an input parameter for binary_to_decimal and the result updated
@@ -115,7 +133,6 @@ b1.place(x=1,y=55)
 b2.place(x=105,y=55)
 e1.place(x=40,y=90)
 win.mainloop()
-
 
 
 
